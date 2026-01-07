@@ -6,7 +6,7 @@
       "properties": {
         "author": {
           "type": "string",
-          "default": "Sat Naing"
+          "default": "本台"
         },
         "pubDatetime": {
           "anyOf": [

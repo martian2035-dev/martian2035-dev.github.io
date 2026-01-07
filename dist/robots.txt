@@ -2,4 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://martianw.cn/sitemap-index.xml
+Sitemap: https://martian2035-dev.github.io/sitemap-index.xml
