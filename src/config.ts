@@ -1,7 +1,7 @@
 export const SITE = {
-  website: import.meta.env.PUBLIC_SITE_URL || "/",
+  website: import.meta.env.PUBLIC_SITE_URL || "https://example.com",
   author: "本台",
-  profile: import.meta.env.PUBLIC_SITE_URL || "/",
+  profile: import.meta.env.PUBLIC_SITE_URL || "https://example.com",
   desc: "我思我在 累句成章",
   title: "93结丙文字集",
   ogImage: "astropaper-og.jpg",
