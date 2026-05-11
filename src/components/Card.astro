@@ -10,22 +10,34 @@ type Props = {
 
 const { variant: Heading = "h2", id, data, filePath } = Astro.props;
 
-const { title, description, ...props } = data;
+const { title } = data;
 ---
 
-<li class="my-6">
-  <a
-    href={getPath(id, filePath)}
-    class:list={[
-      "block text-lg font-medium text-accent",
-      "decoration-dashed underline-offset-4 hover:underline",
-      "focus-visible:no-underline focus-visible:underline-offset-0",
-    ]}
-  >
-    <Heading style={{ viewTransitionName: slugifyStr(title) }}>
-      {title}
-    </Heading>
-  </a>
-  <Datetime {...props} />
-  <p>{description}</p>
+<li class="mb-4">
+  <div class="relative block pr-0">
+    <div class="flex items-center gap-3">
+      <div class="min-w-0 flex-1">
+        <div class="text-lg font-medium text-accent underline-offset-4 min-w-0">
+          <Heading
+            class="truncate overflow-hidden whitespace-nowrap min-w-0"
+            style={{ viewTransitionName: slugifyStr(title) }}
+          >
+            <a
+              href={getPath(id, filePath)}
+              class="text-sm font-medium hover:underline focus-visible:no-underline focus-visible:underline-offset-0"
+            >
+              {title}
+            </a>
+          </Heading>
+        </div>
+        <div class="mt-1 flex flex-row flex-nowrap items-center space-x-2 whitespace-nowrap">
+          <Datetime
+            pubDatetime={data.pubDatetime}
+            modDatetime={data.modDatetime}
+            class="opacity-80"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
 </li>

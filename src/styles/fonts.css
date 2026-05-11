@@ -1,0 +1,21 @@
+/* 导入 fontsource 切片 CSS */
+@import "@fontsource/noto-sans-sc/400.css";
+@import "@fontsource/noto-sans-sc/700.css";
+
+@import "@fontsource/roboto-mono/400.css";
+@import "@fontsource/roboto-mono/400-italic.css";
+@import "@fontsource/roboto-mono/600.css";
+
+/*
+ * 回退字体调整
+ * 使用 size-adjust 减少字体切换时的跳动感
+ */
+@font-face {
+  font-family: "Fallback Sans";
+  src: local("PingFang SC"), local("Microsoft YaHei"), local("Hiragino Sans GB"),
+    local("Noto Sans CJK SC"), local("Source Han Sans SC");
+  size-adjust: 100%;
+  ascent-override: 90%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+}

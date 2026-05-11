@@ -1,31 +1,65 @@
 @plugin "@tailwindcss/typography";
 
 @layer base {
-  /* ===== Override default Tailwind Typography styles ===== */
+  .prose {
+    @apply !text-sm prose-headings:!mb-3 prose-headings:!text-accent prose-h3:italic prose-p:!text-foreground prose-p:!my-3 prose-a:underline-offset-6 prose-blockquote:!border-l-accent/50 prose-blockquote:opacity-70 prose-strong:!text-foreground prose-code:rounded prose-code:bg-muted/75 prose-code:p-0.5 prose-code:!font-normal prose-code:!text-foreground prose-code:before:!content-none prose-code:after:!content-none prose-ol:!text-foreground prose-ul:overflow-x-clip prose-ul:!text-foreground prose-li:marker:!text-accent prose-table:text-foreground prose-th:border prose-th:border-border prose-th:!text-accent prose-td:border prose-td:border-border prose-img:mx-auto prose-hr:!border-border prose-hr:!my-0;
+  }
+
+  .prose :not(pre) > code {
+    @apply !break-words !whitespace-pre-wrap;
+  }
+
+  .prose strong {
+    font-weight: var(--strong-font-weight) !important;
+  }
+
+  .prose a {
+    @apply break-words !text-accent !no-underline hover:!underline;
+  }
+  .prose thead th:first-child,
+  tbody td:first-child,
+  tfoot td:first-child {
+    padding-inline-start: 0.5714286em !important;
+  }
+
+  .prose blockquote {
+    @apply !font-normal;
+  }
+  .prose blockquote p::before {
+    content: "" !important;
+  }
+
+  .prose details {
+    @apply inline-block cursor-pointer text-foreground select-none;
+  }
+  .prose summary {
+    @apply focus-visible:no-underline focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-accent;
+  }
+
+  .prose img {
+    margin-block: 0 !important;
+  }
+
+  .prose kbd {
+    @apply rounded border-1 border-border bg-muted text-foreground!;
+  }
+
+  .responsive-table {
+    @apply overflow-x-auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .responsive-table table {
+    @apply w-full min-w-full table-auto;
+  }
+
+  .prose iframe {
+    @apply aspect-video w-full max-w-full;
+  }
+
+  /* ===== Override default Tailwind Typography styles (legacy) ===== */
   .app-prose {
-    @apply prose prose-lg;
-
-    h1,
-    h2,
-    h3,
-    h4,
-    th {
-      @apply mb-3 text-foreground;
-    }
-
-    h3 {
-      @apply italic;
-    }
-
-    p,
-    strong,
-    ol,
-    ul,
-    figcaption,
-    table,
-    code {
-      @apply text-foreground;
-    }
+    @apply prose;
 
     p {
       @apply text-justify indent-8;
@@ -40,57 +74,6 @@
       img {
         @apply mx-auto;
       }
-    }
-
-    a {
-      @apply wrap-break-word text-foreground decoration-dashed underline-offset-4 hover:text-accent focus-visible:no-underline;
-    }
-
-    ul {
-      @apply overflow-x-clip;
-    }
-
-    li {
-      @apply marker:text-accent;
-    }
-
-    hr {
-      @apply border-border;
-    }
-
-    img {
-      @apply mx-auto border border-border;
-    }
-
-    figcaption {
-      @apply opacity-75;
-    }
-
-    table {
-      th,
-      td {
-        @apply border border-border p-2;
-      }
-
-      th {
-        @apply py-1.5;
-      }
-
-      code {
-        @apply break-all sm:break-normal;
-      }
-    }
-
-    code {
-      @apply rounded bg-muted/75 p-1 wrap-break-word text-foreground before:content-none after:content-none;
-    }
-
-    .astro-code code {
-      @apply flex-[1_0_100%] bg-inherit p-0;
-    }
-
-    blockquote {
-      @apply border-s-accent/80 wrap-break-word opacity-80;
     }
 
     details {
