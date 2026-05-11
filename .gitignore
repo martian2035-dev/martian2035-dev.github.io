@@ -18,3 +18,27 @@ pnpm-debug.log*
 
 # macOS
 .DS_Store
+
+# Claude AI workspace
+.claude/
+
+# VS Code
+.vscode/
+!.vscode/extensions.json
+
+# Pagefind search index (generated during build)
+public/pagefind/
+
+# Editor directories and files
+*.sw?
+*.bak
+*.tmp
+*.sublime-project
+*.sublime-workspace
+
+# OS files
+Thumbs.db
+
+# Testing
+coverage/
+.nyc_output/
