@@ -1,3 +1,3 @@
 declare module 'astro:env/client' {
-	export const PUBLIC_GOOGLE_SITE_VERIFICATION: string | undefined;	
+	export const PUBLIC_SITE_URL: string | undefined;	
 }
